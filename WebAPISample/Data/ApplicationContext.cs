@@ -14,6 +14,7 @@ namespace WebAPISample.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
             // Seed data - needs migration
             modelBuilder.Entity<Movie>()
           .HasData(
@@ -23,6 +24,7 @@ namespace WebAPISample.Data
              new Movie { MovieId = 4, Title = "Pineapple Express", Genre = "Comedy", Director = "David Gordon Green" },
              new Movie { MovieId = 5, Title = "Die Hard", Genre = "Action", Director = "John McTiernan" }
           );
+
         }
 
         public DbSet<Movie> Movies { get; set; }

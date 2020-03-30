@@ -18,11 +18,11 @@ namespace WebAPISample.Controllers
         {
             _context = context;
         }
+        
         // GET api/movie
         [HttpGet]
         public IActionResult Get()
         {
-            // Retrieve all movies from db logic
             return Ok(_context.Movies);
         }
 
@@ -31,58 +31,68 @@ namespace WebAPISample.Controllers
         public IActionResult Get(int id)
         {
             var movie = _context.Movies.Find(id);
+
             if(movie is null)
             {
                 return NotFound();
             }
+
+
             return Ok(movie);
         }
 
         // POST api/movie
         [HttpPost]
-        public IActionResult Post([FromBody]Movie value)
+        public IActionResult Post([FromBody]Movie movie)
         {
             // Create movie in db logic
-            var newMovie = new Movie
-            {
-                Title = value.Title,
-                Genre = value.Genre,
-                Director = value.Director
 
-            };
-            _context.Add(newMovie);
-            _context.SaveChanges();
-            
-            return Ok(newMovie);
+
+            _context.Movies.Add(movie);
+            _context.SaveChangesAsync();
+            return Ok(movie);
+
         }
 
         // PUT api/movie
         [HttpPut]
         public IActionResult Put(int id, [FromBody] Movie movie)
         {
-            var updateMovie = _context.Movies.FirstOrDefault(m => m.MovieId == id);
-            if(id != updateMovie.MovieId)
+
+            // Update movie in db logic
+            var updatedMovie = _context.Movies.Find(movie.MovieId);
+
+            if (updatedMovie.MovieId != movie.MovieId)
             {
                 return BadRequest();
             }
-            updateMovie.Title = movie.Title;
-            updateMovie.Genre = movie.Genre;
-            updateMovie.Director = movie.Director;
 
+            updatedMovie.Title = movie.Title;
+            updatedMovie.Genre = movie.Genre;
+            updatedMovie.Director = movie.Director;
             _context.SaveChanges();
-            return Ok();
+            return Ok(updatedMovie);
+
         }
 
         // DELETE api/movie/5
         [HttpDelete("{id}")]
         public IActionResult Delete(int id, Movie movie)
         {
-                 Movie movieToDelete = _context.Movies.Find(id);
-                _context.Movies.Remove(movie);
-                _context.SaveChangesAsync();
-                return Ok();
+
+            // Delete movie from db logic
             
-           
+             movie = _context.Movies.Find(id);
+
+            if (movie == null)
+            {
+                return NotFound();
+            }
+
+            _context.Movies.Remove(movie);
+            _context.SaveChangesAsync();
+            return Ok(movie);
+
         }
         //private bool MovieExists(int id)
         //{
