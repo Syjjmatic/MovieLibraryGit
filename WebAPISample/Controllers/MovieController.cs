@@ -56,6 +56,12 @@ namespace WebAPISample.Controllers
         {
             // Update movie in db logic
             var updatedMovie = _context.Movies.Find(movie.MovieId);
+
+            if (updatedMovie.MovieId != movie.MovieId)
+            {
+                return BadRequest();
+            }
+
             updatedMovie.Title = movie.Title;
             updatedMovie.Genre = movie.Genre;
             updatedMovie.Director = movie.Director;
@@ -68,7 +74,17 @@ namespace WebAPISample.Controllers
         public IActionResult Delete(int id)
         {
             // Delete movie from db logic
-            return Ok();
+            
+            var movie = _context.Movies.Find(id);
+
+            if (movie == null)
+            {
+                return NotFound();
+            }
+
+            _context.Movies.Remove(movie);
+            _context.SaveChangesAsync();
+            return Ok(movie);
         }
     }
 }
