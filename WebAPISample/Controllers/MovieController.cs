@@ -18,21 +18,19 @@ namespace WebAPISample.Controllers
         {
             _context = context;
         }
+        
         // GET api/movie
         [HttpGet]
         public IActionResult Get()
         {
-            // Retrieve all movies from db logic
-            return Ok(new string[] { "movie1 string", "movie2 string" });
+            return Ok(_context.Movies);
         }
 
         // GET api/movie/5
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            // Retrieve movie by id from db logic
-            // return Ok(movie);
-            return Ok();
+            return Ok(_context.Movies.Find(id));
         }
 
         // POST api/movie
