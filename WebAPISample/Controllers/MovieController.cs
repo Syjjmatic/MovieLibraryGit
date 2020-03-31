@@ -46,7 +46,6 @@ namespace WebAPISample.Controllers
         {
             // Create movie in db logic
 
-
             _context.Movies.Add(movie);
             _context.SaveChangesAsync();
             return Ok(movie);
