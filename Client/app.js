@@ -1,9 +1,15 @@
 (function($){
     function processForm( e ){
         var dict = {
+<<<<<<< HEAD
             Title : this["title"].value,
             Genre : this["genre"].value,
         	Director: this["director"].value
+=======
+        	Title : this["title"].value,
+        	Director: this["director"].value,
+          Genre: this["genre"].value
+>>>>>>> 34c52985da145364573062679d125b2fe2103ea8
         };
 
         $.ajax({
@@ -25,7 +31,10 @@
 
     $('#my-form').submit( processForm );
 })(jQuery);
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> 34c52985da145364573062679d125b2fe2103ea8
