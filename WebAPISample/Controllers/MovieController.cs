@@ -23,6 +23,7 @@ namespace WebAPISample.Controllers
         [HttpGet]
         public IActionResult Get()
         {
+
             return Ok(_context.Movies);
         }
 

@@ -31,7 +31,7 @@
   
         function updateMovieDeets( e ){
             var movie = {
-                movieId: parseInt(this.["movieId"]).value,
+                movieId: parseInt(this["movieId"]).value,
                 Title : this["title"].value,
                 Director: this["director"].value,
                 Genre: this["genre"].value
@@ -57,7 +57,7 @@
     
             e.preventDefault();
         }
-        $('#movies').click(getMovies);
+        $('#movies').onclick( getMovies );
         $('#my-form').submit( processForm );
         $('#edit-form').submit(updateMovieDeets);
     
@@ -67,7 +67,7 @@ function getMovies(){
     $.ajax({
       url: 'https://localhost:44325/api/movie',
       dataType: 'json',
-      type: 'get',
+      type: 'GET',
       contentType: 'application/json',
       success: function (data){
         $("#movies").empty();
@@ -77,17 +77,10 @@ function getMovies(){
           "<td>" + item['director'] + "</td>" +
           "<td>" + item['genre'] + "</td>" +
           "<td>" + "<button onclick=edit("+item['movieId']+") id='editMovie'>Edit</button>" + "</td>"+
+          "<td>" + "<button onclick=deleteMovie("+item['movieId']+") id='deleteMovie'>Delete</button>" + "</td>"+
           "</tr>";
           $("#movies").append(movie);
-
         });
-        console.log(data);
-      },
-      failure: function(data){
-          alert(data.errorThrown)
-      },
-      error: function(data){
-          alert(data.errorThrown)
       }
     });
   };
@@ -115,7 +108,22 @@ function getMovieDeets(id) {
 
     e.preventDefault();
 }
-
+function deleteMovie(id){
+    $.ajax({
+      url: 'https://localhost:44325/api/movie',
+      dataType: 'json',
+      type: 'delete',
+      contentType: 'application/json',
+      data: JSON.stringify(id),
+      success: function(data){
+          alert("Movie deleted!")
+          $('#movies').html(getMovies);
+      },
+      error: function(errorThrown){
+          console.log(errorThrown);
+      }
+    });
+  }
 
 
 
