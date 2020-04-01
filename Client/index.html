@@ -1,44 +1,62 @@
 <!DOCTYPE html>
 <html>
+<center>    
 <head>
-    <title>jQuery AJAX POST Form</title>
+    <link rel="stylesheet" href="BootStrap.css">
+    <title>Movie Library</title>
     <meta charset="utf-8">
 </head>
 <body>
-
-<div id="response">
-    <pre></pre>
-</div>
-
-<form id="my-form">
-    <h1>Enter New Movie</h1>
+<br>
+<h1 <div class="card text-white bg-primary">
+  <img class="card-img-top" src="holder.js/100px180/" alt="">
+  <div class="card-body">
+    <h4 class="card-title">The</h4>
+    <p class="card-text">Complete</p>
+</div>Movie Library</h1>
+<br>
+<br>  
+<form class="card-text" id="my-form">
+    <h1 class="card-text">Enter New Movie</h1>
     <input type="text" name="title" placeholder="Title" />
     <input type="text" name="genre" placeholder="Genre" />
     <input type="text" name="director" placeholder="Director" />
-    
-
-    <button type="submit">Submit</button>
+    <button type="button" class="btn btn-secondary">Submit</button>
 </form>
-<form id ="edit-form">
-    <h1>Edit Movie Details</h1>
-    <input type="text" name="title" placeholder="Title" />
-    <input type="text" name="genre" placeholder="Genre" />
-    <input type="text" name="director" placeholder="Director" />
-    
-
-    <button type="submit">Submit</button>
-
-</form>
-<div>
-   
-    <tbody id="row">
-        <tr>title</tr>
-        <tr>Genre</tr>
-        <tr>Director</tr>
-    </tbody>
+<br>
+<br>
+<div class = "panel panel-primary">
+  <div class="panel-heading"><strong>Movie Library</strong></div>
+  <div class = "panel-body">
+      <table class = "table" id="movieTable">
+              <thead>
+                  <td>Title</td>
+                  <td>Director</td>
+                  <td>Genre</td>
+                  <td></td>
+              </thead>
+              <tbody id="movies"></tbody>
+      </table>
+  </div>
 </div>
+
+<form id="edit-form">
+  <h4 class="card-text">Edit Movie Details</h4>
+  <input type="hidden" name='movieId' placeholder="Id" />
+  <input type="text" name="title" placeholder="Title" />
+  <input type="text" name="director" placeholder="Director" />
+  <input type="text" name="genre" placeholder="Genre" />
+  <button type="button" class="btn btn-secondary"></button>
+</form>
+<br>
+<br>
+<button type="button" id= "getMovies">Show Movie Titles</button>
+<br>
+<br>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="app.js"></script>
 </body>
+</center>
 </html>
