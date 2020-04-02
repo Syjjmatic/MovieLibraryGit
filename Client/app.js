@@ -48,6 +48,7 @@
                 success: function( data ){
                     alert("Success");
                     $("#edit-form input[type ='text']").val('');
+                    alert("Success");
                    getMovies();
                 },
                 error: function( errorThrown ){

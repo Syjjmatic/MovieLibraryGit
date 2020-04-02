@@ -93,9 +93,9 @@ namespace WebAPISample.Controllers
             return Ok(movie);
 
         }
-        //private bool MovieExists(int id)
-        //{
-        //    return _context.Movies.Any(m => m.MovieId == id);
-        //}
+        private bool MovieExists(int id)
+        {
+            return _context.Movies.Any(m => m.MovieId == id);
+        }
     }
 }

@@ -35,7 +35,7 @@
 
 <h1 class="card text-white bg-primary">
   
-  <img src="https://cdn.pixabay.com/photo/2016/01/22/08/17/banner-1155437_1280.png" alt=" movie">
+  <img src="https://cdn.pixabay.com/photo/2016/01/22/08/17/banner-1155437_1280.png" height = 300px width = 1550 alt=" movie">
 
 
 </div>Film Library</h1>
@@ -47,13 +47,14 @@
   <div class = "panel-body">
    
       <table class = "table" id="movieTable">
-              <thead>
-                  <td>Title</td>
-                  <td>Director</td>
-                  <td>Genre</td>
-                  <td></td>
+              <thead style="color: lightslategray;" >
+                  <td style="font-size: x-large ;"><strong>Title</strong></td>
+                  <td style="font-size: x-large ;"><strong>Director</strong></td>
+                  <td style="font-size: x-large ;"><strong>Genre</strong></td>
               </thead>
-       <tbody class="table" id="movies"></tbody>
+       <tbody class="table" id="movies">
+
+       </tbody>
       </table>
   </div>
 </div>
@@ -66,21 +67,13 @@
 </form>
 <br>
 <br>
-<form class= "box"id="edit-form">
-  <h4 class="card-text">Edit Movie Details</h4>
-  <input type="hidden" name='movieId' placeholder="Id" />
-  <input type="text" name="title" placeholder="Title" />
-  <input type="text" name="director" placeholder="Director" />
-  <input type="text" name="genre" placeholder="Genre" />
-  <button type="button" class="btn btn-secondary">Edit</button>
-</form>
 <br>
 <br>
-
 <br>
 <br>
-
-
+<footer>Film Library <i class="fa fa-copyright" aria-hidden="false"></i> 2020</footer>
+<br>  
+<br>  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="app.js"></script>
 </body>
