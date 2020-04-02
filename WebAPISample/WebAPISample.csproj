@@ -8,6 +8,8 @@
     <Compile Remove="Controllers\MoviesController.cs" />
     <Compile Remove="Migrations\20191202155810_Initial.cs" />
     <Compile Remove="Migrations\20191202155810_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200330183608_SeededData.cs" />
+    <Compile Remove="Migrations\20200330183608_SeededData.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

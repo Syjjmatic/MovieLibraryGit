@@ -57,7 +57,7 @@
     
             e.preventDefault();
         }
-        $('#movies').onclick( getMovies );
+        $('#movies').html
         $('#my-form').submit( processForm );
         $('#edit-form').submit(updateMovieDeets);
     

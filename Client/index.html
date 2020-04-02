@@ -7,7 +7,7 @@
     <meta charset="utf-8">
 </head>
 <body>
-<<!-- Nav tabs -->
+<!-- Nav tabs -->
 <ul class="nav nav-tabs" id="navId">
   <li class="nav-item">
     <a href="#tab1Id" class="nav-link active">Home</a>
@@ -32,25 +32,18 @@
   <div class="tab-pane fade" id="tab5Id" role="tabpanel"></div>
 </div>
 
-<script>
-  $('#navId a').click(e => {
-    e.preventDefault();
-    $(this).tab('show');
-  });
-</script>
-<h1 <div class="card text-white bg-primary">
+
+<h1 class="card text-white bg-primary">
   <img class="card-img-top" src="https://cdn.pixabay.com/photo/2016/01/22/08/17/banner-1155437_1280.png" height="400px" alt="">
   
 </div>Movie Library</h1>
 <br>
-<br>  
-
 <br>
 <br>
 <div class = "panel panel-primary">
 
   <div class = "panel-body">
-    <button type="button" id= "getMovies">Show Movie Titles</button>
+   
       <table class = "table" id="movieTable">
               <thead>
                   <td>Title</td>
@@ -58,7 +51,7 @@
                   <td>Genre</td>
                   <td></td>
               </thead>
-              <tbody id="movies"></tbody>
+              <tbody class="table" id="movies"></tbody>
       </table>
   </div>
 </div>
