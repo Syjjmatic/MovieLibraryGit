@@ -57,7 +57,7 @@
     
             e.preventDefault();
         }
-        $('#movies').html
+        $('#movies').html(getMovies);
         $('#my-form').submit( processForm );
         $('#edit-form').submit(updateMovieDeets);
     
@@ -80,6 +80,7 @@ function getMovies(){
           "<td>" + "<button onclick=deleteMovie("+item['movieId']+") id='deleteMovie'>Delete</button>" + "</td>"+
           "</tr>";
           $("#movies").append(movie);
+          
         });
       }
     });
